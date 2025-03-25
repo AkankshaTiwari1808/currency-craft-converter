@@ -6,6 +6,7 @@ interface AmountInputProps {
   value: number;
   onChange: (value: number) => void;
   currency: string;
+  currencySymbol?: string;
   label: string;
   className?: string;
 }
@@ -14,6 +15,7 @@ const AmountInput: React.FC<AmountInputProps> = ({
   value,
   onChange,
   currency,
+  currencySymbol = "",
   label,
   className,
 }) => {
@@ -76,6 +78,11 @@ const AmountInput: React.FC<AmountInputProps> = ({
           isFocused ? "shadow-md ring-2 ring-primary/20" : "hover:shadow-md"
         )}
       >
+        {currencySymbol && (
+          <div className="absolute left-0 top-0 bottom-0 flex items-center justify-center px-3 text-muted-foreground">
+            {currencySymbol}
+          </div>
+        )}
         <input
           ref={inputRef}
           type="text"
@@ -85,8 +92,9 @@ const AmountInput: React.FC<AmountInputProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           className={cn(
-            "w-full py-3 pl-4 pr-12 bg-transparent",
-            "focus:outline-none text-xl font-medium"
+            "w-full py-3 bg-transparent",
+            "focus:outline-none text-xl font-medium",
+            currencySymbol ? "pl-8 pr-12" : "pl-4 pr-12"
           )}
         />
         <div className="absolute right-0 top-0 bottom-0 flex items-center justify-center px-3 text-muted-foreground">

@@ -5,6 +5,7 @@ import CurrencySelector from "./CurrencySelector";
 import AmountInput from "./AmountInput";
 import { ArrowLeftRight, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getCurrencyByCode } from "@/lib/currencyData";
 
 interface CurrencyConverterProps {
   className?: string;
@@ -26,6 +27,10 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ className }) => {
 
   const [conversionVisible, setConversionVisible] = useState(false);
   const [animateSwap, setAnimateSwap] = useState(false);
+
+  // Get currency symbols for display
+  const fromCurrencyData = getCurrencyByCode(fromCurrency);
+  const toCurrencyData = getCurrencyByCode(toCurrency);
 
   // Animate results when they change
   useEffect(() => {
@@ -64,6 +69,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ className }) => {
           value={amount}
           onChange={setAmount}
           currency={fromCurrency}
+          currencySymbol={fromCurrencyData?.symbol || ''}
         />
 
         <div className="flex flex-col md:flex-row justify-between gap-4 relative">
@@ -131,15 +137,14 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ className }) => {
               <div className="text-center">
                 <div className="flex items-center justify-center mb-3">
                   <span className="text-3xl font-semibold">
-                    {lastResult.formattedResult}
+                    {toCurrencyData?.symbol || ''} {parseFloat(lastResult.convertedAmount.toFixed(2)).toLocaleString()}
                   </span>
                 </div>
 
                 <div className="text-sm text-muted-foreground">
                   <div className="flex items-center justify-center space-x-2">
                     <span>
-                      1 {lastResult.fromCurrency} = {lastResult.rate.toFixed(4)}{" "}
-                      {lastResult.toCurrency}
+                      {fromCurrencyData?.symbol || ''} 1 = {toCurrencyData?.symbol || ''} {lastResult.rate.toFixed(4)}
                     </span>
                   </div>
                   <div className="mt-1">
