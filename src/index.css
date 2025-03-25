@@ -71,8 +71,10 @@
   /* Currency background */
   .currency-bg {
     @apply relative overflow-hidden;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" opacity="0.03"><rect width="800" height="400" fill="none"/><g transform="scale(0.8) translate(50, 50)"><path d="M50,20 H750 Q770,20 770,40 V360 Q770,380 750,380 H50 Q30,380 30,360 V40 Q30,20 50,20 Z" fill="currentColor"/><text x="400" y="80" font-size="60" text-anchor="middle" font-weight="bold" fill="currentColor">₹ 500</text><text x="400" y="140" font-size="24" text-anchor="middle" fill="currentColor">RESERVE BANK OF INDIA</text><text x="400" y="300" font-size="16" text-anchor="middle" fill="currentColor">I PROMISE TO PAY THE BEARER THE SUM OF FIVE HUNDRED RUPEES</text><text x="180" y="200" font-size="36" text-anchor="middle" fill="currentColor">₹</text><text x="620" y="200" font-size="36" text-anchor="middle" fill="currentColor">₹</text><circle cx="400" cy="200" r="80" stroke="currentColor" stroke-width="2" fill="none"/></g></svg>');
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' opacity='0.1'%3E%3Crect width='800' height='400' fill='none'/%3E%3Cg transform='scale(0.8) translate(50, 50)'%3E%3Cpath d='M50,20 H750 Q770,20 770,40 V360 Q770,380 750,380 H50 Q30,380 30,360 V40 Q30,20 50,20 Z' fill='%23164727'/%3E%3Ctext x='400' y='80' font-size='60' text-anchor='middle' font-weight='bold' fill='%23164727'%3E₹ 500%3C/text%3E%3Ctext x='400' y='140' font-size='24' text-anchor='middle' fill='%23164727'%3ERESERVE BANK OF INDIA%3C/text%3E%3Ctext x='400' y='300' font-size='16' text-anchor='middle' fill='%23164727'%3EI PROMISE TO PAY THE BEARER THE SUM OF FIVE HUNDRED RUPEES%3C/text%3E%3Ctext x='180' y='200' font-size='36' text-anchor='middle' fill='%23164727'%3E₹%3C/text%3E%3Ctext x='620' y='200' font-size='36' text-anchor='middle' fill='%23164727'%3E₹%3C/text%3E%3Ccircle cx='400' cy='200' r='80' stroke='%23164727' stroke-width='2' fill='none'/%3E%3C/g%3E%3C/svg%3E");
     background-color: var(--background);
+    background-repeat: repeat;
+    background-size: 600px auto;
   }
 
   .currency-bg::before {
