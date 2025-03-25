@@ -14,7 +14,7 @@ const TransitionLayout: React.FC<TransitionLayoutProps> = ({
   return (
     <div 
       className={cn(
-        "w-full min-h-screen flex flex-col items-center justify-center px-4 py-12 animated-bg",
+        "w-full min-h-screen flex flex-col items-center justify-center px-4 py-12 currency-bg",
         className
       )}
     >

@@ -68,12 +68,14 @@
     @apply transition-all duration-500 ease-in-out;
   }
 
-  /* Animated background */
-  .animated-bg {
+  /* Currency background */
+  .currency-bg {
     @apply relative overflow-hidden;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><text x="50%" y="50%" font-size="24" text-anchor="middle" dominant-baseline="middle" fill="currentColor">$</text><text x="25%" y="25%" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="currentColor">€</text><text x="75%" y="25%" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="currentColor">£</text><text x="25%" y="75%" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="currentColor">¥</text><text x="75%" y="75%" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="currentColor">₹</text></svg>');
+    background-color: var(--background);
   }
 
-  .animated-bg::before {
+  .currency-bg::before {
     content: '';
     @apply absolute -inset-[100px] bg-[radial-gradient(circle,rgba(31,169,255,0.08)_0%,rgba(31,169,255,0)_60%)] animate-spin-slow;
   }
